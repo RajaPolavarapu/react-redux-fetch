@@ -16,15 +16,24 @@ export default class Post extends Component {
       })
     })
   }
+  componentWillReceiveProps(nextProps) {
+    const a = [...this.state.posts];
+    a.unshift({...nextProps.addPost(), id: this.state.posts.length+1})
+    this.setState({
+      posts: a
+    })
+  }
   render() {
     return (
-      <div>
+      <div className='container'>
+        <h3 style={{textAlign: "left", margin: '10px'}}>Comments</h3>
         {this.state.posts.map((d)=> {
-          console.log(d);
           return (
             <div key={d.id}>
-              <h3 className='title'>Title: {d.title}</h3>
-              <div className='description'>Body: {d.body}</div>
+              <div class="panel panel-default">
+                <span className='panel-title'>Title: {d.title}</span>
+                <span className='panel-body'>Body: {d.body}</span>
+              </div>
             </div>
           )
         })}
