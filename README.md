@@ -9,3 +9,6 @@ We have another module which works with Redux please visit my github profile
 ## Something Missing?
 
 If you need something can be added [let me know])
+
+Credits: 
+jsonplaceholder for providing api services , though they are dummy
